@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import Employee from "~/components/employee";
+import EmployeeCard from "~/components/employeeCard";
 import LinkButton from "~/components/linkButton";
 import { getDB } from "~/db/getDB";
 
@@ -18,14 +18,18 @@ export default function EmployeesPage() {
         <h1 className="text-3xl font-bold text-black/85 mb-6">Employees</h1>
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {employees.map((employee: any) => (
-            <Employee {...employee} />
+            <EmployeeCard {...employee} />
           ))}
         </div>
       </div>
 
       <div className="border-t border-gray-200 pt-6">
         <nav className="flex space-x-6 justify-end">
-          <LinkButton to="/employees/new" label="Add New Employee" />
+          <LinkButton
+            to="/employees/new"
+            label="Add New Employee"
+            className="bg-blue-500 hover:bg-blue-700"
+          />
 
           <LinkButton
             to="/timesheets/"
