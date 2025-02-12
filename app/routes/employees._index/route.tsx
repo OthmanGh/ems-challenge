@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router";
 import EmployeeCard from "~/components/employeeCard";
 import LinkButton from "~/components/linkButton";
 import { getDB } from "~/db/getDB";
+import type { EmployeeCardProps } from "~/types";
 
 export async function loader() {
   const db = await getDB();
@@ -17,8 +18,8 @@ export default function EmployeesPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-black/85 mb-6">Employees</h1>
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {employees.map((employee: any) => (
-            <EmployeeCard {...employee} />
+          {employees.map((employee: EmployeeCardProps) => (
+            <EmployeeCard key={employee.id} {...employee} />
           ))}
         </div>
       </div>
