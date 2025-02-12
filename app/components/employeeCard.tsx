@@ -1,13 +1,6 @@
 import { Link } from "react-router";
 import { Mail, Briefcase, Users, MoveRight } from "lucide-react";
-
-interface EmployeeProps {
-  id: string;
-  full_name: string;
-  email: string;
-  job_title: string;
-  department: string;
-}
+import type { EmployeeCardProps } from "~/types";
 
 const EmployeeCard = ({
   id,
@@ -15,7 +8,7 @@ const EmployeeCard = ({
   email,
   job_title,
   department,
-}: EmployeeProps) => {
+}: EmployeeCardProps) => {
   return (
     <div className="flex flex-col gap-2 w-full max-w-md rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 px-4 py-6">
       <div className="space-y-4">
